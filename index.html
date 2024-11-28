@@ -15,13 +15,24 @@
     <link rel="stylesheet" href="css/vendor/aos.css">
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="css/vendor/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/whitep.png" type="image/icon type-x">
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
 
   </head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TS5CTZ6BLQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TS5CTZ6BLQ');
+</script>
+
   <body data-spy="scroll" data-target=".site-nav-target" data-offset="200">
 <!-- Inspect prevention -->
     <script>
@@ -56,31 +67,31 @@
 
        
         
-           // Function to redirect to a different page
-           function redirectToWarning() {
-            window.location.href = "https://upload.wikimedia.org/wikipedia/commons/e/eb/Givingthefinger.jpg"; // Replace "warning.html" with the desired page
-        }
+        //    // Function to redirect to a different page
+        //    function redirectToWarning() {
+        //     window.location.href = "https://upload.wikimedia.org/wikipedia/commons/e/eb/Givingthefinger.jpg"; // Replace "warning.html" with the desired page
+        // }
 
-        // Detect key combinations for Ctrl+U, Ctrl+Shift+C, F12
-        document.addEventListener("keydown", (event) => {
-            // Detect Ctrl+U
-            if (event.ctrlKey && event.key === "u") {
-                event.preventDefault();
-                redirectToWarning();
-            }
+        // // Detect key combinations for Ctrl+U, Ctrl+Shift+C, F12
+        // document.addEventListener("keydown", (event) => {
+        //     // Detect Ctrl+U
+        //     if (event.ctrlKey && event.key === "u") {
+        //         event.preventDefault();
+        //         redirectToWarning();
+        //     }
 
-            // Detect Ctrl+Shift+C
-            if (event.ctrlKey && event.shiftKey && event.key === "C") {
-                event.preventDefault();
-                redirectToWarning();
-            }
+        //     // Detect Ctrl+Shift+C
+        //     if (event.ctrlKey && event.shiftKey && event.key === "C") {
+        //         event.preventDefault();
+        //         redirectToWarning();
+        //     }
 
-            // Detect F12
-            if (event.key === "F12") {
-                event.preventDefault();
-                redirectToWarning();
-            }
-        });
+        //     // Detect F12
+        //     if (event.key === "F12") {
+        //         event.preventDefault();
+        //         redirectToWarning();
+        //     }
+        // });
 
         // Detect right-click
         document.addEventListener("contextmenu", (event) => {
@@ -170,7 +181,12 @@
 
     <div id="home-section" style="position: relative; overflow: hidden;">
         <!-- Content -->
-        <div class="cover-v1 jarallax" style="position: relative; z-index: 1;">
+        <div class="cover-v1 jarallax" style="position: relative; z-index: 1; overflow: hidden;">
+          <!-- Video Background -->
+          <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+            <source src="images/homevid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
           <div class="container">
             <div class="row align-items-center">
               <div class="col-md-7 mx-auto text-center">
@@ -207,19 +223,19 @@
                 &emsp;
               </div>
               <div class="logo-v1 gsap-reveal">
-                <img src="images/logo-gpt.png" alt="Image" class="img-fluid">
+                <img src="images/RAIL+Final (1).png" alt="Image" class="img-fluid">
               </div>
               <div class="logo-v1 gsap-reveal">
                 &emsp;
               </div>
               <div class="logo-v1 gsap-reveal">
-                <img src="images/logo-productica.png" alt="Image" class="img-fluid">
+                <img src="images/ms.jpg" alt="Image" class="img-fluid">
               </div>
               <div class="logo-v1 gsap-reveal">
                 &emsp; 
               </div>
               <div class="logo-v1 gsap-reveal">
-                <img src="images/logo-gpt.png" alt="Image" class="img-fluid">
+                <img src="images/logo-aws.png" alt="Image" class="img-fluid">
               </div>
               <div class="logo-v1 gsap-reveal">
                 &emsp;
@@ -370,7 +386,7 @@
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
               <div class="counter-v1 text-center">
                 <span class="number-wrap">
-                  <span class="number number-counter" data-number="98">0</span>
+                  <span class="number number-counter" data-number="94">0</span>
                   <span class="append-text">%</span>
                 </span>
                 <span class="counter-label">Market Analysis Accuracy</span>
@@ -379,7 +395,7 @@
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
               <div class="counter-v1 text-center">
                 <span class="number-wrap">
-                  <span class="number number-counter" data-number="1.2">0</span>
+                  <span class="number number-counter" data-number="1.4">0</span>
                   <span class="append-text">s</span>
                 </span>
                 <span class="counter-label">Average Response Time</span>
@@ -388,7 +404,7 @@
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
               <div class="counter-v1 text-center">
                 <span class="number-wrap">
-                  <span class="number number-counter" data-number="95">0</span>
+                  <span class="number number-counter" data-number="90">0</span>
                   <span class="append-text">%</span>
                 </span>
                 <span class="counter-label">User Satisfaction Rate</span>
@@ -397,7 +413,7 @@
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
               <div class="counter-v1 text-center">
                 <span class="number-wrap">
-                  <span class="number number-counter" data-number="100">0</span>
+                  <span class="number number-counter" data-number="98">0</span>
                   <span class="append-text">%</span>
                 </span>
                 <span class="counter-label">Efficiency in Data Processing</span>
@@ -406,73 +422,95 @@
           </div>
         </div>
       </div>
-      
+      <h4 class=" text-center divider"><span class="gsap-reveal">*Disclaimer: Results may vary based on internet connectivity and data availability.</span></h4>
       <!-- END Highlights -->
 
       <div class="unslate_co--section" id="pricing-section">
         <div class="container">
           <div class="section-heading-wrap text-center mb-5">
             <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Our Pricing Plans</span></h2>
-            <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76"></span>
+            <span class="gsap-reveal">
+              <img src="images/divider.png" alt="divider" width="76">
+            </span>
           </div>
       
           <div class="pricing-cards">
+            <!-- Basic Plan -->
             <div class="pricing-card">
               <div class="card-inner">
                 <h3 class="plan-title">Basic Plan</h3>
-                <p class="price">$19<span>/month</span></p>
+                <p class="price">Free<span></span></p>
                 <ul class="features-list">
-                  <li>5 Projects</li>
-                  <li>Basic Support</li>
-                  <li>Access to all features</li>
+                  <li><i class="fas fa-project-diagram"></i> 5 Free Credits + Pay-As-You-Use</li>
+                  <li><i class="fas fa-headset"></i> Basic Support</li>
+                  <li><i class="fas fa-check-circle"></i> Access to limited features</li>
+                  <li><i class="fas fa-heart"></i> Our Love</li>
                 </ul>
-                <button class="btn-select">Select Plan</button>
+                <button class="btn-select" onclick="location.href='#contact-section';">Contact Us</button><br><br>
+                <div class="badge">*Conditions Apply</div>
               </div>
             </div>
       
+            <!-- Pro Plan -->
             <div class="pricing-card popular">
+              <!-- <div class="badge">Most Popular</div> -->
               <div class="card-inner">
                 <h3 class="plan-title">Pro Plan</h3>
                 <p class="price">$49<span>/month</span></p>
                 <ul class="features-list">
-                  <li>20 Projects</li>
-                  <li>Priority Support</li>
-                  <li>Access to premium features</li>
+                  <li><i class="fas fa-project-diagram"></i> 50 credits</li>
+                  <li><i class="fas fa-headset"></i> Priority Support</li>
+                  <li><i class="fas fa-crown"></i> Access to premium features</li>
+                  <li><i class="fas fa-file-download"></i> Downloadable report</li>
+                  <li><i class="fas fa-heart"></i> Our Love</li>
                 </ul>
-                <button class="btn-select">Select Plan</button>
+                <button class="btn-select" onclick="location.href='#contact-section';">Contact Us</button><br><br>
+                <div class="badge">*Conditions Apply</div>
               </div>
             </div>
       
+            <!-- Enterprise Plan -->
             <div class="pricing-card">
               <div class="card-inner">
                 <h3 class="plan-title">Enterprise Plan</h3>
-                <p class="price">$99<span>/month</span></p>
+                <p class="price">$TBD<span>/month</span></p>
                 <ul class="features-list">
-                  <li>Unlimited Projects</li>
-                  <li>Dedicated Support</li>
-                  <li>All features included</li>
+                  <li><i class="fas fa-project-diagram"></i> Customizable credits as per usage</li>
+                  <li><i class="fas fa-headset"></i> 24/7 Dedicated Support</li>
+                  <li><i class="fas fa-star"></i> All features included</li>
+                  <li><i class="fas fa-shield-alt"></i> Enhanced data security options</li>
+                  <li><i class="fas fa-heart"></i> Our Love</li>
                 </ul>
-                <button class="btn-select">Select Plan</button>
+                <button class="btn-select" onclick="location.href='#contact-section';">Contact Us</button><br><br>
+                <div class="badge">*Subject to Agreement</div>
               </div>
             </div>
           </div>
         </div>
       </div>
       
+      
+ <!-- Embed of productica from pickaxe -->
+  <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Try Productica Now</span></h2><br>
+  <h4 class=" text-center divider"><span class="gsap-reveal">Prompt Example</span></h4>
+  <h6 class=" text-center divider"><span class="gsap-reveal"><strong>Product:</strong> Pro-biotic Drinks <strong>Features:</strong> Sugar-less, healthy, no preservatives, natural, carbonated juice, pocket-friendly, 100% organic. <strong>Price:</strong> 120/- for 100ml <strong>Product Stage:</strong> Pre-production <strong>Revenue:</strong> 0/- </span></h6><br>
+    <h6 class=" text-center divider"><span class="gsap-reveal">**Note: There is no need of greetings (ie. Hi/Hello)</span></h6>
+    <h6 class=" text-center divider"><span class="gsap-reveal">You are limited to one credit or one project at a time.</span></h6>
 
-      <!-- Bot -->
-        <!-- <div class="iframe-container">
-          <iframe id="embed-preview-iframe" loading="eager" src="https://embed.pickaxeproject.com/axe?id=Productica_FHPX5&mode=embed_gold&host=beta&theme=custom&opacity=100&font_header=Real+Head+Pro&size_header=30&font_body=Real+Head+Pro&size_body=16&font_labels=Real+Head+Pro&size_labels=14&font_button=Real+Head+Pro&size_button=16&c_fb=FFFFFF&c_ff=FFFFFF&c_fbd=888888&c_rb=FFFFFF&c_bb=228DD7&c_bt=FFFFFF&c_t=000000&s_ffo=100&s_rbo=100&s_bbo=100&s_f=minimalist&s_b=filled&s_t=1&s_to=1&s_r=2" 
-          frameBorder="0"></iframe>
-      </div>
-      <div id="pickaxe-input-box-Productica_FHPX5"></div> -->
+    <!-- Bot -->
+  <div class="iframe-container">
+    <iframe id="embed-preview-iframe" loading="eager" src="https://embed.pickaxeproject.com/axe?id=Productica_OP_OIGCT&mode=embed_gold&host=beta&theme=light&opacity=100&font_header=Real+Head+Pro&size_header=30&font_body=Real+Head+Pro&size_body=16&font_labels=Real+Head+Pro&size_labels=14&font_button=Real+Head+Pro&size_button=16&c_fb=FFFFFF&c_ff=FFFFFF&c_fbd=888888&c_rb=FFFFFF&c_bb=228DD7&c_bt=FFFFFF&c_t=000000&s_ffo=100&s_rbo=100&s_bbo=100&s_f=minimalist&s_b=filled&s_t=0.5&s_to=1&s_r=2" width="100%" height="500px" class="transition hover:translate-y-[-2px] hover:shadow-[0_6px_20px_0px_rgba(0,0,0,0.15)]" style="border:1px solid rgba(0, 0, 0, 1);transition:.3s;border-radius:4px;max-width:700px" frameBorder="0"></iframe></div>
+<div id="pickaxe-input-box-Productica_FHPX5"></div>
+
+
+    
   
   
       <!-- Centered Button Container -->
-  <div class="button-container" style="background-color: black;">
+  <!-- <div class="button-container" style="background-color: black;">
   
     <button class="custom-button" onclick="openModal()">Try Productica</button>
-  </div>
+  </div> -->
   
   <!-- Modal HTML -->
   <div id="passwordModal" class="modal">
@@ -537,7 +575,7 @@ else if (password === "rajumkc") {
           <div class="row justify-content-between">
             
             <div class="col-md-6">
-              <form method="post" action="send-email.php" class="form-outline-style-v1" id="contactForm">
+              <form name="submit-to-google-sheet" method="post"  class="form-outline-style-v1" id="contactForm">
                 <div class="form-group row mb-0">
                     <div class="col-lg-6 form-group gsap-reveal">
                         <label for="name">Name</label>
@@ -559,8 +597,40 @@ else if (password === "rajumkc") {
                     </div>
                 </div>
             </form>
+
+            <h5 id="success-message" style="color: green;"></h5>
+            <h5 id="error-message" style="color: red;"></h5>
+
+            <script>
+              const scriptURL = 'https://script.google.com/macros/s/AKfycbxENiXt1bELdxzDyR4fzYyZZw_3PTcCVHKbt_26qEXJEftKzgVW-eaE5aebDsdiExiJkw/exec';
+              const form = document.forms['submit-to-google-sheet'];
+              const successMessage = document.getElementById('success-message');
+              const errorMessage = document.getElementById('error-message');
+              
+              form.addEventListener('submit', e => {
+                  e.preventDefault();
+                  
+                  // Clear previous messages
+                  successMessage.textContent = '';
+                  errorMessage.textContent = '';
+                  
+                  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                      .then(response => {
+                          if (response.ok) {
+                              successMessage.textContent = 'Form submitted successfully!';
+                              form.reset(); // Optional: Reset the form fields after success
+                          } else {
+                              throw new Error('Failed to submit form');
+                          }
+                      })
+                      .catch(error => {
+                          errorMessage.textContent = 'Error submitting form: ' + error.message;
+                      });
+              });
+          </script>
+          
             
-              <div id="form-message-warning" class="mt-4"></div> 
+              <!-- <div id="form-message-warning" class="mt-4"></div>  -->
               <div id="form-message-success">
                 Your message was sent, thank you!
               </div>
@@ -569,26 +639,54 @@ else if (password === "rajumkc") {
 
             <div class="col-md-4">
               <div class="contact-info-v1">
+                <!-- Email -->
                 <div class="gsap-reveal d-block">
                   <span class="d-block contact-info-label">Email</span>
-                 <a href="mailto:info@productica.in" class="contact-info-val">info@productica.in</a>
-
+                  <a href="mailto:info@productica.in" class="contact-info-val">info@productica.in</a>
                 </div>
+                
+                <!-- Phone -->
                 <div class="gsap-reveal d-block">
                   <span class="d-block contact-info-label">Phone</span>
-                  <a href="#" class="contact-info-val">+12 345 6789 012</a>
+                  <a href="tel:+91 70691 33331" class="contact-info-val">+91 70691 33331</a>
                 </div>
+                
+                <!-- Address -->
                 <div class="gsap-reveal d-block">
                   <span class="d-block contact-info-label">Address</span>
-                  <address class="contact-info-val">273 XYZ Rd. <br> Vadodara, Gujarat, IND 39XXXX</address>
+                  <address class="contact-info-val"> <br> Vadodara, Gujarat, India</address>
                 </div>
               </div>
+              
+              <!-- Social Media Icons -->
+              <div class="social-media-icons gsap-reveal d-block mt-3">
+                <span class="d-block contact-info-label">Follow Us</span>
+                <ul class="footer-site-social d-flex mt-2" style="list-style: none; padding: 0;">
+                  <li style="margin-right: 15px;">
+                    <a href="https://x.com/Productica_in" target="_blank" style="font-size: 24px; color: white;">
+                      <i class="fab fa-x-twitter fa-xl"></i>
+                    </a>
+                  </li>
+                  <li style="margin-right: 15px;">
+                    <a href="https://www.instagram.com/productica.in" target="_blank" style="font-size: 24px; color: white">
+                      <i class="fab fa-instagram fa-xl"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" target="_blank" style="font-size: 24px; color: white;">
+                      <i class="fab fa-linkedin fa-xl"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
+            
 
           </div>
         </div>
       </div>
       </div> <!-- END .unslate_co-site-inner -->
+
 
       <footer class="unslate_co--footer unslate_co--section">
         <div class="container">
@@ -597,20 +695,19 @@ else if (password === "rajumkc") {
               
               <div class="footer-site-logo"><a href="#">Productica<span>.</span></a></div>
 
-              <ul class="footer-site-social">
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+              <!-- <ul class="footer-site-social">
+                <li><a href="https://x.com/Productica_in" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/productica.in"><i class="fab fa-instagram"></i></a></li>
                 <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-            </ul>
+            </ul> -->
             
 
               <p class="site-copyright">
                 
 
-                Copyright &copy;
+                <!-- Copyright &copy; -->
                 <script>
-                  document.write(new Date().getFullYear());
+                  // document.write(new Date().getFullYear());
                 </script> Made with <i class="icon-heart"
                   aria-hidden="true"></i> by <a href="https://coddle.tech" target="_blank">Kalp</a>
 
