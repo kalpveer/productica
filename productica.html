@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productica</title>
     <link rel="icon" href="images/whitep.png" type="image/icon type-x">
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         html, body {
             margin: 0;
@@ -12,109 +14,170 @@
             width: 100%;
             height: 100%;
             overflow: hidden; /* Prevent scrolling */
+            font-family: 'Poppins', sans-serif; /* Apply Poppins font */
         }
         iframe {
             width: 100%;
             height: 100%;
             border: none; /* Remove default iframe border */
         }
+        /* Styles for the main pop-up */
+        #termsPopup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Ensure it is above everything else */
+        }
+        #termsPopupContent {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        #termsPopupContent h2 {
+            margin-top: 0;
+            font-weight: 600;
+        }
+        #termsPopupContent p {
+            margin: 20px 0;
+            text-align: justify;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        #termsPopupContent a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        #termsPopupContent a:hover {
+            text-decoration: underline;
+        }
+        #acceptButton {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        #acceptButton:hover {
+            background-color: #45a049;
+        }
+        /* Styles for the PDF Viewer Modal */
+        #pdfModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            display: none; /* Initially hidden */
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        #pdfModalContent {
+            background-color: #fff;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            height: 80%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        #pdfModalHeader {
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+        #pdfModalHeader button {
+            background-color: #f44336;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+        #pdfModalHeader button:hover {
+            background-color: #d32f2f;
+        }
+        #pdfViewer {
+            flex-grow: 1;
+            border: none;
+        }
     </style>
-    <script>
-        // Disable right-click
-        document.addEventListener('contextmenu', function(event) {
-            event.preventDefault();
-        });
-
-        // Disable inspect element via keyboard shortcuts
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'F12' || 
-                (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J')) || 
-                (event.ctrlKey && event.key === 'U')) {
-                event.preventDefault();
-            }
-        });
-
-        // Prevent drag and drop to stop inspecting elements via drag
-        document.addEventListener('dragstart', function(event) {
-            event.preventDefault();
-        });
-
-        // Disable right-click and inspect tools on the iframe content
-        window.addEventListener('load', function() {
-            const iframe = document.querySelector('iframe');
-            iframe.contentWindow.document.addEventListener('contextmenu', function(event) {
-                event.preventDefault();
-            });
-            iframe.contentWindow.document.addEventListener('keydown', function(event) {
-                if (event.key === 'F12' || 
-                    (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J')) || 
-                    (event.ctrlKey && event.key === 'U')) {
-                    event.preventDefault();
-                }
-            });
-
-            // Block developer tools
-            iframe.contentWindow.addEventListener('keydown', function(event) {
-                // Check for F12 and developer tools shortcuts
-                if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J'))) {
-                    event.preventDefault();
-                    alert('Developer tools are disabled on this page.');
-                }
-            });
-
-            // Disable inspect element via the "view source" context menu option
-            iframe.contentWindow.document.addEventListener('keydown', function(event) {
-                if (event.key === 'U' && event.ctrlKey) {
-                    event.preventDefault();
-                    alert('Viewing source is disabled on this page.');
-                }
-            });
-        });
-
-        // Disable developer tools opening on page load
-        (function() {
-            var e = {
-                isPressed: false,
-                keys: {
-                    17: false, // Ctrl key
-                    18: false, // Alt key
-                    83: false, // 'S' key
-                    85: false, // 'U' key
-                    123: false // F12 key
-                }
-            };
-
-            // Detect if the user presses the DevTools key combinations
-            document.addEventListener('keydown', function(event) {
-                if (e.keys[event.keyCode] !== undefined) {
-                    e.keys[event.keyCode] = true;
-                }
-                if (e.keys[17] && e.keys[18] && (e.keys[83] || e.keys[85] || e.keys[123])) {
-                    alert('Developer Tools have been disabled.');
-                    e.isPressed = true;
-                    event.preventDefault();
-                }
-            });
-            document.addEventListener('keyup', function(event) {
-                if (e.keys[event.keyCode] !== undefined) {
-                    e.keys[event.keyCode] = false;
-                }
-            });
-
-            // Prevent opening DevTools with mouse right-click or keyboard
-            document.addEventListener('contextmenu', function(event) {
-                event.preventDefault();
-            });
-            document.addEventListener('keydown', function(event) {
-                if (event.keyCode === 123 || (event.ctrlKey && event.shiftKey && event.keyCode === 73)) {
-                    event.preventDefault();
-                }
-            });
-        })();
-    </script>
 </head>
 <body>
-                                                                                                                                                                                                                                                                              <iframe src="https://www.stack-ai.com/chat-assistant/fe4d5f64-3d15-4c68-bd50-a93c180d5728/4235bd26-70f9-4399-92f3-f5d481b9fd2a/674760caebbbf171c28038be" width="100%" height="790px" frameBorder="0" style="border: 0;"></iframe><br>
-                                                                                                                                                                                                                                                                                Brought to you by <a href="" target="_blank"></a>
+    <iframe src="https://www.stack-ai.com/chat-assistant/fe4d5f64-3d15-4c68-bd50-a93c180d5728/4235bd26-70f9-4399-92f3-f5d481b9fd2a/674760caebbbf171c28038be" width="100%" height="790px" frameBorder="0" style="border: 0;"></iframe><br>
+    Brought to you by <a href="" target="_blank"></a>
+
+    <!-- Terms and Conditions Pop-Up -->
+    <div id="termsPopup">
+        <div id="termsPopupContent">
+            <h2>Terms and Conditions</h2>
+            <p>
+                Please read and accept our terms and conditions to continue using this site.
+                By clicking "Accept", you agree to abide by our terms of service.
+                <br><br>
+                <a href="terms.pdf" id="viewPdfLink">Read the full Terms and Conditions</a>
+            </p>
+            <button id="acceptButton">Accept</button>
+        </div>
+    </div>
+
+    <!-- PDF Viewer Modal -->
+    <div id="pdfModal">
+        <div id="pdfModalContent">
+            <div id="pdfModalHeader">
+                <span>Terms and Conditions</span>
+                <button id="closePdfModal">Close</button>
+            </div>
+            <iframe id="pdfViewer" src="terms.pdf"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Handle the main pop-up
+        const termsPopup = document.getElementById("termsPopup");
+        const acceptButton = document.getElementById("acceptButton");
+        const pdfModal = document.getElementById("pdfModal");
+        const viewPdfLink = document.getElementById("viewPdfLink");
+        const closePdfModal = document.getElementById("closePdfModal");
+
+        acceptButton.addEventListener("click", () => {
+            termsPopup.style.display = "none"; // Hide the terms pop-up
+            document.body.style.overflow = "auto"; // Re-enable scrolling
+        });
+
+        // Show the PDF viewer modal
+        viewPdfLink.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevent the default link behavior
+            pdfModal.style.display = "flex";
+        });
+
+        // Close the PDF viewer modal
+        closePdfModal.addEventListener("click", () => {
+            pdfModal.style.display = "none";
+        });
+
+        // Disable scrolling when terms pop-up is active
+        document.body.style.overflow = "hidden";
+    </script>
 </body>
 </html>
